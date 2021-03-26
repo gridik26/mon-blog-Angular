@@ -11,7 +11,6 @@ import { PostFormComponent } from './post-form/post-form.component';
 import { PostService } from './service/post.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 const appRoutes: Routes = [
   {path: '', component: PostListComponent },
   {path: 'posts', component: PostListComponent },

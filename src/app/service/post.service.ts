@@ -10,30 +10,12 @@ export class PostService {
 
   postSubject = new Subject<Post[]>();
 
-  posts: Post[] = [
-    {
-      title: 'Mon premier post',  
-      content: 'blablablablablablablablablablablablabla',  
-      loveIts: '',  
-      created_at: new Date()
-    },
-    {
-      title: 'Mon deuxième post',  
-      content: 'bliblibliblibliblibliblibli',  
-      loveIts: '',  
-      created_at: new Date()
-    },
-    {
-      title: 'Encore un post',  
-      content: 'bleblebleblebleblebleblebleblebleble',  
-      loveIts: '',  
-      created_at: new Date()
-    },
-  ];
+  posts: Post[] = [];
   
 
   constructor() {
     this.emitPosts();
+    this.getPosts();
    }
 
   emitPosts() {
@@ -51,7 +33,7 @@ export class PostService {
     });
   }
 
-  createNewBook(post: Post){
+  createPost(post: Post){
     this.posts.push(post);
     this.savePost();
     this.emitPosts();
