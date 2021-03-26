@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-post',
