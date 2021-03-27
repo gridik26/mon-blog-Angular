@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../model/post.model';
+import { PostService } from '../service/post.service';
 
 
 @Component({
@@ -8,13 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
+  @Input() id: number;
   @Input() title: string;  
   @Input() content: string;  
   @Input() loveIts: string;  
   @Input() created_at: Date;
    
 
-  constructor() { 
+  constructor(private postService: PostService) { 
   }
 
   ngOnInit(): void {
@@ -26,6 +29,10 @@ export class PostComponent implements OnInit {
 
   onDontLove() {
     this.loveIts = 'hate';
+  }
+
+  onSuppressPost(post: Post){
+    this.postService.removePost(post);
   }
 
 }

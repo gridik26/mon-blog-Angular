@@ -39,4 +39,18 @@ export class PostService {
     this.emitPosts();
   }
 
+  removePost(post: Post){
+    console.log('remove de remove');
+    const postToRemove = this.posts.findIndex(
+      (postTosuppress) => {
+        if(postTosuppress === post) {
+          return true;
+        }
+      }
+    );
+    this.posts.splice(postToRemove, 1);
+    this.savePost();
+    this.emitPosts();
+  }
+
 }
