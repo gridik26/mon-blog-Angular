@@ -39,6 +39,7 @@ export class PostService {
     this.emitPosts();
   }
 
+
   removePost(post: Post){
     console.log('remove de remove');
     const postToRemove = this.posts.findIndex(
@@ -51,6 +52,11 @@ export class PostService {
     this.posts.splice(postToRemove, 1);
     this.savePost();
     this.emitPosts();
+  }
+
+  updatePost(index: number, loveIts: number, bgColor: string){
+    firebase.database().ref('posts/').child(index.toString()).update({'loveIts': loveIts,'bgColor': bgColor});
+    
   }
 
 }

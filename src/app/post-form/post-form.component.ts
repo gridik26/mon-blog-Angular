@@ -31,6 +31,8 @@ export class PostFormComponent implements OnInit {
     const content: string = this.postForm.get('content').value;
     const created_at: Date = new Date();
     const newPost = new Post(title, content, created_at);
+    newPost.loveIts = 0;
+    newPost.bgColor = '';
     this.postService.createPost(newPost);
     this.router.navigate(['/posts']);
   }

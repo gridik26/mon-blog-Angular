@@ -1,7 +1,7 @@
-<li [ngClass]="{'list-group-item':true, 'list-group-item-success': loveIts === 'love', 'list-group-item-danger': loveIts === 'hate'}" >
+<li [ngClass]="{'list-group-item':true, 'list-group-item-success': bgColor === 'green', 'list-group-item-danger': bgColor === 'red'}" >
     <div class="row mt-3">
         <div class="col-6">
-            <h2>{{ title }}</h2>
+            <h2>{{ id }} {{ title }}</h2>
         </div>
         <div class="col-6">
             <p>{{created_at | date:'d/MM/yy, h:mm a' }}</p>
@@ -14,9 +14,19 @@
     </div>
     <div class="row">
         <div class="col">
-            <button class="btn btn-success mr-1" (click)="onLove()">Love it!</button>
-            <button class="btn btn-danger" (click)="onDontLove()">Don't love it!</button>
-            <button class="btn btn-secondary d-flex justify-content-end" (click)="onSuppressPost(this)">Supprimer le post</button>
+            <div class="row">
+                <button class="btn btn-success mr-1" (click)="onLove(id)">Love it!</button>
+                <button class="btn btn-danger" (click)="onDontLove(id)">Don't love it!</button>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>rating : {{ loveIts }}</p>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <button class="btn btn-secondary " (click)="onSuppressPost(this)">Supprimer le post</button>
+                </div>
+                
+            </div>
         </div>
     </div>
 </li>
